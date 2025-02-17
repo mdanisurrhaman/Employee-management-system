@@ -1,0 +1,111 @@
+{% block content %}
+<h1 style="text-align: center; padding: 20px; border-radius: 12px; color: white; font-size: 32px; font-weight: bold; background: linear-gradient(90deg, #ffd700, #ff8c00); text-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);">Update Employee Data</h1>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400&display=swap');
+
+    body, html {
+        height: 100%;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Roboto', sans-serif;
+        background: linear-gradient(135deg, #f7f7f7, #e8e8e8);
+    }
+
+    .form-container {
+        padding: 50px;
+        border-radius: 16px;
+        background: rgba(255, 255, 255, 0.9);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+        backdrop-filter: blur(20px);
+        width: 450px;
+        max-width: 90%;
+        border: 2px solid rgba(255, 215, 0, 0.8);
+    }
+
+    .form-container h2 {
+        font-family: 'Playfair Display', serif;
+        font-size: 24px;
+        color: #333333;
+        margin-bottom: 30px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    label {
+        font-weight: 700;
+        font-size: 14px;
+        color: #555555;
+    }
+
+    input {
+        padding: 14px;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        border-radius: 12px;
+        font-size: 16px;
+        outline: none;
+        background: rgba(255, 255, 255, 0.6);
+        box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+    }
+
+    input:focus {
+        border-color: #ffd700;
+        background: white;
+        box-shadow: 0 4px 12px rgba(255, 215, 0, 0.4);
+    }
+
+    button {
+        background: linear-gradient(90deg, #ff8c00, #ffd700);
+        color: white;
+        padding: 14px 25px;
+        border: none;
+        border-radius: 12px;
+        font-size: 18px;
+        font-family: 'Playfair Display', serif;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.4s ease;
+        text-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    button:hover {
+        background: linear-gradient(90deg, #ffd700, #ff8c00);
+        transform: scale(1.05);
+        box-shadow: 0 8px 16px rgba(255, 140, 0, 0.5);
+    }
+
+    button:active {
+        transform: scale(1);
+        box-shadow: 0 4px 8px rgba(255, 140, 0, 0.3);
+    }
+</style>
+<body>
+    <div class="form-container">
+        <h2>Employee Details</h2>
+        <form method="post">
+            {% csrf_token %}
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" value="{{ emp.name }}" required>
+            
+            <label for="department">Department:</label>
+            <input type="text" id="department" name="department" value="{{ emp.department }}" required>
+            
+            <label for="salary">Salary:</label>
+            <input type="number" id="salary" name="salary" value="{{ emp.salary }}" required>
+            
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" value="{{ emp.age }}" required>
+            
+            <button type="submit">Update Employee</button>
+        </form>
+    </div>
+</body>
+{% endblock %}

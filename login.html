@@ -1,0 +1,122 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    /* General styling */
+    body {
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(135deg, #ece9e6, #ffffff);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+    .login-container {
+        background: #ffffff;
+        border-radius: 15px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        overflow: hidden;
+        max-width: 500px;
+        width: 100%;
+    }
+
+    .login-header {
+        background: linear-gradient(135deg, #6a11cb, #2575fc);
+        color: #ffffff;
+        text-align: center;
+        padding: 20px;
+        font-size: 1.5em;
+        font-weight: bold;
+    }
+
+    .login-form {
+        padding: 30px;
+    }
+
+    .login-form label {
+        display: block;
+        font-size: 14px;
+        color: #333333;
+        margin-bottom: 5px;
+    }
+
+    .login-form input {
+        width: 100%;
+        padding: 12px 15px;
+        margin-bottom: 20px;
+        border: 1px solid #dddddd;
+        border-radius: 8px;
+        font-size: 16px;
+        box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .login-form input:focus {
+        border-color: #6a11cb;
+        box-shadow: 0 0 8px rgba(106, 17, 203, 0.2);
+        outline: none;
+    }
+
+    .login-form button {
+        width: 100%;
+        padding: 15px;
+        font-size: 18px;
+        font-weight: bold;
+        color: #ffffff;
+        background: linear-gradient(135deg, #6a11cb, #2575fc);
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    .login-form button:hover {
+        background: linear-gradient(135deg, #2575fc, #6a11cb);
+        transform: translateY(-2px);
+    }
+
+    .login-form button:active {
+        transform: translateY(0);
+    }
+
+    .login-footer {
+        text-align: center;
+        padding: 15px;
+        font-size: 14px;
+        color: #777777;
+    }
+
+    .login-footer a {
+        color: #6a11cb;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .login-footer a:hover {
+        text-decoration: underline;
+    }
+</style>
+
+<div class="login-container">
+    <div class="login-header">
+        Welcome Back
+    </div>
+    <div class="login-form">
+        <form method="post">
+            {% csrf_token %}
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+            
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            
+            <button type="submit">Login</button>
+        </form>
+    </div>
+    <div class="login-footer">
+        Don't have an account? <a href="/signup">Sign up</a>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,263 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    
+    
+<td>
+    <a href="{% url 'addData'  %}">
+        <button style="
+            background-color: #2C3E50; 
+            color: #F39C12; 
+            border: 2px solid #F39C12; 
+            padding: 12px 24px; 
+            font-size: 18px; 
+            font-weight: bold; 
+            border-radius: 30px; 
+            cursor: pointer; 
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), inset 0 -3px 0 rgba(255, 255, 255, 0.3);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;">
+            Add Data
+        </button>
+    </a>
+</td>
+
+<td>
+    <a href="{% url 'login' %}">
+        <button style="
+            background: linear-gradient(45deg, #1d1ada, #4a90e2); 
+            color: white; 
+            border: 2px solid #ffffff; 
+            padding: 12px 30px; 
+            font-size: 18px; 
+            font-weight: bold; 
+            border-radius: 30px; 
+            cursor: pointer; 
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15), 0 0 15px rgba(74, 144, 226, 0.4);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;">
+            Login
+        </button>
+    </a>
+</td>
+
+
+<td>
+    <a href="{% url 'logout' %}">
+        <button style="
+            background: linear-gradient(45deg, #ff4d4d, #e60000); 
+            color: white; 
+            border: 2px solid #ffffff; 
+            padding: 12px 30px; 
+            font-size: 18px; 
+            font-weight: bold; 
+            border-radius: 30px; 
+            cursor: pointer; 
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15), 0 0 15px rgba(255, 77, 77, 0.4);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;">
+            Logout
+        </button>
+    </a>
+</td>
+
+
+
+    
+    
+
+    
+  
+    <!-- <h1>my name is {{name}}</h1> -->
+     <!-- <h1>{{info}}</h1> -->
+
+     <!-- {% for i in info %}
+     <h1>{{i}}</h1>
+     {% endfor %} -->
+
+     <!-- {% for i in info %}
+     <h1>{{i.name}}</h1>
+     <h1>{{i.age}}</h1>
+     {% endfor %} -->
+
+     <!-- <table>
+        <tr>
+            <th>name</th>
+            <th>age</th>
+        </tr>
+        {% for i in info %}
+        <tr>
+            <td>{{i.name}}</td>
+            <td>{{i.age}}</td>
+        </tr>
+        {% endfor %}
+     </table> -->
+     
+<style>
+    table {
+        width: 80%;
+        margin: 50px auto;
+        border-collapse: collapse;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        background: #f9f9f9;
+    }
+
+    th, td {
+        padding: 15px;
+        text-align: center;
+        font-family: 'Arial', sans-serif;
+        border: 1px solid #ddd;
+    }
+
+    th {
+        background-color: #4CAF50;
+        color: white;
+        text-transform: uppercase;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    tr:hover {
+        background-color: #ddd;
+    }
+
+    td {
+        background-color: #ffffff;
+        font-size: 16px;
+        color: #333;
+    }
+
+    td:hover {
+        background-color: #f1f1f1;
+        cursor: pointer;
+    }
+</style>
+
+ <div style="text-align: center;">
+    <h1 style="font-family: 'Lobster', 'Georgia', serif; 
+               font-size: 4.5em; 
+               font-weight: bolder; 
+               text-transform: uppercase; 
+               letter-spacing: 10px; 
+               color: #fff; 
+               padding: 40px 60px; 
+               background: linear-gradient(135deg, #D4AF37, #FF6347, #FF4500); 
+               border-radius: 30px; 
+               box-shadow: 0 20px 30px rgba(0, 0, 0, 0.4), 0 6px 15px rgba(0, 0, 0, 0.2); 
+               position: relative; 
+               animation: gradient-animation 4s ease infinite, glow 1s ease-in-out infinite;">
+      Employee Data
+    </h1>
+  </div>
+  
+  <style>
+    @keyframes gradient-animation {
+      0% {
+        background: linear-gradient(135deg, #D4AF37, #FF6347, #FF4500);
+      }
+      50% {
+        background: linear-gradient(135deg, #FFD700, #FF8C00, #FF4500);
+      }
+      100% {
+        background: linear-gradient(135deg, #D4AF37, #FF6347, #FF4500);
+      }
+    }
+  
+    @keyframes glow {
+      0% {
+        text-shadow: 0 0 20px #ffcc00, 0 0 40px #ffcc00, 0 0 60px #ffcc00;
+      }
+      100% {
+        text-shadow: 0 0 30px #ffcc00, 0 0 60px #ffcc00, 0 0 90px #ffcc00;
+      }
+    }
+  </style>
+  
+      
+      
+
+
+     <table style="width:100%" class="table">
+        <colgroup>
+            <col span="6" style="background-color: #c3cfd4">
+          </colgroup>
+        <tr>
+            <th>ID</th>
+            <th>NAME</th>
+            <th>DEPATMENT</th>
+            <th>SALARY</th>
+            <th>AGE</th>
+            <th>ACTION</th>
+        </tr> 
+    </div>
+    
+        {% for i in emp %}
+        <tr>
+            <td>{{i.id}}</td>
+            <td>{{i.name}}</td>
+            <td>{{i.department}}</td>
+            <td>{{i.salary}}</td>
+            <td>{{i.age}}</td>
+            <td>
+                <a href="{% url 'updateData' i.id %}">
+                    <button style="
+                        background: linear-gradient(45deg, #28a745, #1e7e34); 
+                        color: white; 
+                        border: 2px solid #ffffff; 
+                        padding: 12px 25px; 
+                        font-size: 16px; 
+                        font-weight: bold; 
+                        border-radius: 30px; 
+                        cursor: pointer; 
+                        box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15), 0 0 15px rgba(40, 167, 69, 0.4);
+                        transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;">
+                        Update
+                    </button>
+                </a>
+                <a href="{% url 'Delete' i.id %}">
+                    <button style="
+                        background: linear-gradient(45deg, #f44336, #d32f2f); 
+                        color: white; 
+                        border: 2px solid #ffffff; 
+                        padding: 12px 25px; 
+                        font-size: 16px; 
+                        font-weight: bold; 
+                        border-radius: 30px; 
+                        cursor: pointer; 
+                        box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15), 0 0 15px rgba(244, 67, 54, 0.4);
+                        transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;">
+                        Delete
+                    </button>
+                </a>
+            </td>
+            
+                        
+        </tr>
+        {% endfor %}
+     </table>
+     <div style="text-align: center;">
+<h1 style="background-color:rgb(74, 177, 96);">Department Data</h1>
+     </div>
+
+
+<table style="width:100%">
+    <colgroup>
+        <col span="3" style="background-color: #c3cfd4">
+      </colgroup>
+        <tr>
+            <th>ID</th>
+            <th>NAME</th>
+            <th>HOD</th>
+        </tr>
+        {% for i in dep %}
+        <tr>
+            <td>{{i.id}}</td>
+            <td>{{i.name}}</td>
+            <td>{{i.hod}}</td>
+        </tr>
+        {% endfor %}
+     </table>
+     <img src="/static/images/download.png" alt="">
+
+    
+{% endblock %}

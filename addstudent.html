@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<head>
+<h1 style="background-color:rgb(74, 177, 96);">Register new students</h1>
+<style>
+    body,
+    html {
+        height:75%;
+        margin: 0;
+        display: grid;
+        place-items: center;
+    }
+
+    .form-container {
+        padding: 40px;
+        border: 10px solid #2d4234;
+        background-color: #b9a9a9;
+    }
+</style>
+<body id="bd">
+    <div class="form-container">
+    </head>
+<form method="post">
+    {% csrf_token %}
+    <label>Name:</label><input type="text" name="name" required><br></br>
+    <label>roll_no:</label><input type="number" name="roll_no" required><br></br>
+    <label>semester:</label><input type="number" name="semester" required><br></br>
+    <!-- <label>branch:</label><input type="text" name="branch" required><br></br> -->
+    <label>phone_no:</label><input type="number" name="phone_no" required><br></br>
+    <button type="submit">add student</button><br></br>
+
+
+</form>
+
+{% endblock %}
